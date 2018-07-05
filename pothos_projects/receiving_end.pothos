@@ -3,6 +3,12 @@
         "graphHeight": 1800,
         "graphWidth": 2880
     },
+    "globals": [
+        {
+            "name": "BW",
+            "value": "0.5e6"
+        }
+    ],
     "pages": [
         {
             "graphObjects": [
@@ -43,8 +49,8 @@
                         }
                     ],
                     "path": "/widgets/chat_box",
-                    "positionX": 1249,
-                    "positionY": 115,
+                    "positionX": 1114,
+                    "positionY": 143,
                     "properties": [
                         {
                             "key": "username",
@@ -56,9 +62,9 @@
                         }
                     ],
                     "rotation": 0,
-                    "selected": true,
+                    "selected": false,
                     "what": "Block",
-                    "zValue": 16
+                    "zValue": 21
                 },
                 {
                     "affinityZone": "",
@@ -97,8 +103,8 @@
                         }
                     ],
                     "path": "/comms/dc_removal",
-                    "positionX": 425,
-                    "positionY": 142,
+                    "positionX": 393,
+                    "positionY": 136,
                     "properties": [
                         {
                             "key": "dtype",
@@ -116,7 +122,7 @@
                     "rotation": 0,
                     "selected": false,
                     "what": "Block",
-                    "zValue": 9
+                    "zValue": 18
                 },
                 {
                     "affinityZone": "",
@@ -218,8 +224,8 @@
                         }
                     ],
                     "path": "/lora/lora_decoder",
-                    "positionX": 906,
-                    "positionY": 151,
+                    "positionX": 856,
+                    "positionY": 156,
                     "properties": [
                         {
                             "key": "sf",
@@ -265,7 +271,7 @@
                     "rotation": 0,
                     "selected": false,
                     "what": "Block",
-                    "zValue": 15
+                    "zValue": 20
                 },
                 {
                     "affinityZone": "",
@@ -353,8 +359,8 @@
                         }
                     ],
                     "path": "/lora/lora_demod",
-                    "positionX": 639,
-                    "positionY": 142,
+                    "positionX": 608,
+                    "positionY": 136,
                     "properties": [
                         {
                             "key": "sf",
@@ -362,7 +368,7 @@
                         },
                         {
                             "key": "sync",
-                            "value": "0x4e"
+                            "value": "0x3c"
                         },
                         {
                             "key": "thresh",
@@ -376,10 +382,10 @@
                     "rotation": 0,
                     "selected": false,
                     "what": "Block",
-                    "zValue": 12
+                    "zValue": 33
                 },
                 {
-                    "activeEditTab": "Channels",
+                    "activeEditTab": "Streaming",
                     "affinityZone": "",
                     "enabled": true,
                     "id": "SoapySDRSource0",
@@ -990,12 +996,12 @@
                         }
                     ],
                     "path": "/soapy/source",
-                    "positionX": 153,
-                    "positionY": 149,
+                    "positionX": 145,
+                    "positionY": 148,
                     "properties": [
                         {
                             "key": "deviceArgs",
-                            "value": "{\"driver\" : \"lime\", \"index\" : \"0\", \"label\" : \"LimeSDR-USB [USB 3.0] 9070105C52F12\", \"media\" : \"USB 3.0\", \"module\" : \"FX3\", \"name\" : \"LimeSDR-USB\", \"serial\" : \"0009070105C52F12\"}"
+                            "value": "{\"addr\" : \"1d50:6108\", \"driver\" : \"lime\", \"label\" : \"LimeSDR-USB [USB 3.0] 9070602433917\", \"media\" : \"USB 3.0\", \"module\" : \"FX3\", \"name\" : \"LimeSDR-USB\", \"serial\" : \"0009070602433917\"}"
                         },
                         {
                             "key": "dtype",
@@ -1011,7 +1017,7 @@
                         },
                         {
                             "key": "sampleRate",
-                            "value": "0.5e6"
+                            "value": "BW"
                         },
                         {
                             "key": "autoActivate",
@@ -1089,7 +1095,289 @@
                     "rotation": 0,
                     "selected": false,
                     "what": "Block",
-                    "zValue": 7
+                    "zValue": 45
+                },
+                {
+                    "affinityZone": "",
+                    "enabled": true,
+                    "id": "WaveMonitor0",
+                    "inputDesc": [
+                        {
+                            "alias": "clearChannels",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "clearChannels",
+                            "size": 1
+                        },
+                        {
+                            "alias": "enableXAxis",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "enableXAxis",
+                            "size": 1
+                        },
+                        {
+                            "alias": "enableYAxis",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "enableYAxis",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setAutoScale",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setAutoScale",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setChannelLabel",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setChannelLabel",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setChannelStyle",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setChannelStyle",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setNumPoints",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setNumPoints",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setSampleRate",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setSampleRate",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setTitle",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setTitle",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setYAxisTitle",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setYAxisTitle",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setYRange",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setYRange",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setAlignment",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setAlignment",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setEventRate",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setDisplayRate",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setHoldOff",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setTriggerHoldOff",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setLabelId",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setTriggerLabelId",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setLevel",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setTriggerLevel",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setMode",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setTriggerMode",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setPosition",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setTriggerPosition",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setSlope",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setTriggerSlope",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setSource",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setTriggerSource",
+                            "size": 1
+                        },
+                        {
+                            "alias": "setNumWindows",
+                            "dtype": "unspecified",
+                            "isSigSlot": true,
+                            "name": "setTriggerWindows",
+                            "size": 1
+                        },
+                        {
+                            "alias": "0",
+                            "dtype": "unspecified",
+                            "isSigSlot": false,
+                            "name": "0",
+                            "size": 1
+                        }
+                    ],
+                    "path": "/plotters/wave_monitor",
+                    "positionX": 789,
+                    "positionY": 408,
+                    "properties": [
+                        {
+                            "key": "title",
+                            "value": "\"Amplitude vs Time\""
+                        },
+                        {
+                            "key": "numInputs",
+                            "value": "1"
+                        },
+                        {
+                            "key": "displayRate",
+                            "value": "10.0"
+                        },
+                        {
+                            "key": "sampleRate",
+                            "value": "BW"
+                        },
+                        {
+                            "key": "numPoints",
+                            "value": "1024"
+                        },
+                        {
+                            "key": "align",
+                            "value": "false"
+                        },
+                        {
+                            "key": "autoScale",
+                            "value": "true"
+                        },
+                        {
+                            "key": "yRange",
+                            "value": "[-1.0, 1.0]"
+                        },
+                        {
+                            "key": "enableXAxis",
+                            "value": "true"
+                        },
+                        {
+                            "key": "enableYAxis",
+                            "value": "true"
+                        },
+                        {
+                            "key": "yAxisTitle",
+                            "value": "\"\""
+                        },
+                        {
+                            "key": "triggerSource",
+                            "value": "0"
+                        },
+                        {
+                            "key": "triggerWindows",
+                            "value": "1"
+                        },
+                        {
+                            "key": "triggerHoldOff",
+                            "value": "0"
+                        },
+                        {
+                            "key": "triggerSlope",
+                            "value": "\"POS\""
+                        },
+                        {
+                            "key": "triggerMode",
+                            "value": "\"AUTOMATIC\""
+                        },
+                        {
+                            "key": "triggerLevel",
+                            "value": "0.0"
+                        },
+                        {
+                            "key": "triggerPosition",
+                            "value": "0"
+                        },
+                        {
+                            "key": "triggerLabelId",
+                            "value": "\"\""
+                        },
+                        {
+                            "key": "label0",
+                            "value": "\"\""
+                        },
+                        {
+                            "key": "style0",
+                            "value": "\"LINE\""
+                        },
+                        {
+                            "key": "label1",
+                            "value": "\"\""
+                        },
+                        {
+                            "key": "style1",
+                            "value": "\"LINE\""
+                        },
+                        {
+                            "key": "label2",
+                            "value": "\"\""
+                        },
+                        {
+                            "key": "style2",
+                            "value": "\"LINE\""
+                        },
+                        {
+                            "key": "label3",
+                            "value": "\"\""
+                        },
+                        {
+                            "key": "style3",
+                            "value": "\"LINE\""
+                        },
+                        {
+                            "key": "rateLabelId",
+                            "value": "\"rxRate\""
+                        }
+                    ],
+                    "rotation": 0,
+                    "selected": false,
+                    "what": "Block",
+                    "zValue": 39
                 },
                 {
                     "enabled": true,
@@ -1135,6 +1423,20 @@
                 },
                 {
                     "enabled": true,
+                    "id": "Connection_LoRaDemod0raw_WaveMonitor00",
+                    "inputId": "WaveMonitor0",
+                    "inputKey": "0",
+                    "outputId": "LoRaDemod0",
+                    "outputKey": "raw",
+                    "positionX": 0,
+                    "positionY": 0,
+                    "rotation": 0,
+                    "selected": false,
+                    "what": "Connection",
+                    "zValue": 0
+                },
+                {
+                    "enabled": true,
                     "id": "Connection_SoapySDRSource00_DCRemoval00",
                     "inputId": "DCRemoval0",
                     "inputKey": "0",
@@ -1146,6 +1448,33 @@
                     "selected": false,
                     "what": "Connection",
                     "zValue": 0
+                },
+                {
+                    "blockId": "ChatBox0",
+                    "enabled": true,
+                    "height": 254,
+                    "id": "WidgetChatBox0",
+                    "positionX": 993,
+                    "positionY": 266,
+                    "rotation": 0,
+                    "selected": false,
+                    "what": "Widget",
+                    "width": 282,
+                    "zValue": 27
+                },
+                {
+                    "blockId": "WaveMonitor0",
+                    "enabled": true,
+                    "height": 158,
+                    "id": "WidgetWaveMonitor0",
+                    "positionX": 302,
+                    "positionY": 421,
+                    "rotation": 0,
+                    "selected": false,
+                    "state": "AAAACAAAAAADAAAADgB2AGkAcwBpAGIAbABlAAAADQAAAAAAAAAACgBzAHQAYQBjAGsAAAAJAAAAAAEAAAAUAAAAAAAAAAAAv/AAAAAAAABAAGJN0vGp/EAAAAAAAAAAAAAACgBpAG4AZABlAHgAAAADAAAAAAA=",
+                    "what": "Widget",
+                    "width": 308,
+                    "zValue": 44
                 }
             ],
             "pageName": "Main",
