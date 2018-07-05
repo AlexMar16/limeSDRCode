@@ -899,7 +899,7 @@
                         },
                         {
                             "key": "gain",
-                            "value": "50"
+                            "value": "80"
                         },
                         {
                             "key": "antenna",
@@ -947,9 +947,9 @@
                         }
                     ],
                     "rotation": 0,
-                    "selected": false,
+                    "selected": true,
                     "what": "Block",
-                    "zValue": 29
+                    "zValue": 37
                 },
                 {
                     "enabled": true,
@@ -992,6 +992,19 @@
                     "selected": false,
                     "what": "Connection",
                     "zValue": 0
+                },
+                {
+                    "blockId": "ChatBox0",
+                    "enabled": true,
+                    "height": 260,
+                    "id": "WidgetChatBox0",
+                    "positionX": 95,
+                    "positionY": 298,
+                    "rotation": 0,
+                    "selected": false,
+                    "what": "Widget",
+                    "width": 290,
+                    "zValue": 36
                 }
             ],
             "pageName": "Main",
