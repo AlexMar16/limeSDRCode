@@ -3,6 +3,7 @@
 #include <stdio.h> //printf
 #include <stdlib.h> //free
 #include <complex.h>
+#include <math.h> // sqrt, pow
 
 struct SoapySDRDevice *Setup(void);
 void DeviceInfo(struct SoapySDRDevice *sdr);
@@ -88,7 +89,7 @@ void Read_1024_samples(struct SoapySDRDevice *sdr, double freq, complex float *b
     {
         printf("setSampleRate fail: %s\n", SoapySDRDevice_lastError());
     }
-    if (SoapySDRDevice_setFrequency(sdr, SOAPY_SDR_RX, 0, 912.3e6, NULL) != 0)
+    if (SoapySDRDevice_setFrequency(sdr, SOAPY_SDR_RX, 0, freq, NULL) != 0)
     {
         printf("setFrequency fail: %s\n", SoapySDRDevice_lastError());
     }
@@ -103,19 +104,40 @@ void Read_1024_samples(struct SoapySDRDevice *sdr, double freq, complex float *b
 
     //create a re-usable buffer for rx samples
     complex float buff[1024];
+    float min, max;
+    min = (float)INT32_MAX;
+    max = 0;
+
+    int mincounter, maxcounter;
+
+    mincounter = maxcounter = 0;
 
     //receive some samples
-    for (size_t i = 0; i < 10; i++)
+    for (size_t i = 0; i < 10000; i++)
     {
         void *buffs[] = {buff}; //array of buffers
         int flags; //flags set by receive operation
         long long timeNs; //timestamp for receive buffer
         int ret = SoapySDRDevice_readStream(sdr, rxStream, buffs, 1024, &flags, &timeNs, 100000);
-        printf("ret=%d, flags=%d, timeNs=%lld\n", ret, flags, timeNs);
+        // printf("ret=%d, flags=%d, timeNs=%lld\n", ret, flags, timeNs);
+        fflush(stdout);
         for(size_t j = 0; j < ret; j++) {
-            printf("inside: %d \n", buffs[j]);
+            float fr = creal(buff[j]);
+            float fi = cimag(buff[j]);
+            float amplitude = sqrt(pow(fr, 2) + pow(fi, 2));
+            // printf("amplitude: %f \n", amplitude);
+            if (amplitude < min) {
+                min = amplitude;
+                mincounter += 1;
+            } else if(amplitude > max) {
+                max = amplitude;
+                maxcounter += 1;
+            }
         }
+        // printf("min:%f | max:%f \n", min, max);
     }
+    printf("max: %f | min: %f \n", max, min);
+    printf("We took 10.000 times 1024 samples and out of that the \n maxcounter is: %d \n and the  \nmincounter is: %d \n", maxcounter, mincounter);
 
     //shutdown the stream
     SoapySDRDevice_deactivateStream(sdr, rxStream, 0, 0); //stop streaming
