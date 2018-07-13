@@ -25,12 +25,7 @@ int main(int argc, char *argv[]) {
         for(int j = 0; j < NUM_SAMPLES; j++) {
 
             float amplitude = sqrt(pow(creal(buffn[j]), 2) + pow(cimag(buffn[j]), 2));
-            if(amplitude > 0.02) {
-                printf("%f\n", amplitude);
-            }
-//         float fr = creal(buff[j]);
-//             float fi = cimag(buff[j]);
-// float amplitude = sqrt(pow(fr, 2) + pow(fi, 2));
+            printf("--%f\n", amplitude);
 
         }
 
@@ -127,7 +122,6 @@ void Read_n_samples(struct SoapySDRDevice *sdr, int num_samples, double freq, co
 
     printf("reading %d samples\n", num_samples);
     int ret = SoapySDRDevice_readStream(sdr, rxStream, buffs, num_samples, &flags, &timeNs, 1e9);
-    printf("(hopefully) finished reading samples. ret is: %d\n", ret);
 
     //shutdown the stream
     SoapySDRDevice_deactivateStream(sdr, rxStream, 0, 0); //stop streaming
